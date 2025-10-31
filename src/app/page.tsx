@@ -1,11 +1,5 @@
-import { Button } from "@/components/ui/button";
-
 const Page = async () => {
-  return (
-    <div>
-      <Button>Buggr Me</Button>
-    </div>
-  );
+  return <div></div>;
 };
 
 export default Page;
