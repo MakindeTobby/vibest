@@ -1,0 +1,16 @@
+# This is a config for E2B sandbox template.
+# You can use template ID (zz0owxof8u2w3pih2vb4) or template name (vibest-nextjs-maks) to create a sandbox:
+
+# Python SDK
+# from e2b import Sandbox, AsyncSandbox
+# sandbox = Sandbox.create("vibest-nextjs-maks") # Sync sandbox
+# sandbox = await AsyncSandbox.create("vibest-nextjs-maks") # Async sandbox
+
+# JS SDK
+# import { Sandbox } from 'e2b'
+# const sandbox = await Sandbox.create('vibest-nextjs-maks')
+
+team_id = "0033dc88-a174-47e9-b23a-25a97ea76752"
+dockerfile = "e2b.Dockerfile"
+template_name = "vibest-nextjs-maks"
+template_id = "zz0owxof8u2w3pih2vb4"
