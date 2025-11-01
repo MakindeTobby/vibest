@@ -1,15 +1,21 @@
+import { Agent, openai, gemini, createAgent, grok } from "@inngest/agent-kit";
 import { inngest } from "./client";
+import { success } from "zod";
 
 export const helloWorld = inngest.createFunction(
   { id: "hello-world" },
   { event: "test/hello.world" },
   async ({ event, step }) => {
-    //Imagine this is a download step
-    await step.sleep("wait-a-moment", "30s");
-    //Imagine this is a transcript step
-    await step.sleep("wait-a-moment", "10s");
-    //Imagine this is a summary step
-    await step.sleep("wait-a-moment", "5s");
-    return { message: `Hello ${event.data.email}!` };
+    const summarizer = createAgent({
+      name: "summarizer",
+      system: "You are an expert summarizer, You summarize in two words",
+      model: gemini({ model: "gemini-2.5-pro" }),
+    });
+    const { output } = await summarizer.run(
+      `Summarize the following text: ${event.data.value} `
+    );
+
+    // await step.sleep("wait-a-moment", "5s");
+    return { output };
   }
 );
